@@ -1,0 +1,217 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+
+  <head>
+      <meta charset="utf-8" /f>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>KEA2: Kinase Enrichment Analysis</title>
+      <link rel="stylesheet" href="css/foundation.css" />
+  </head>
+  
+  <style>
+  @import url(style.css?20120427);
+  </style>
+
+  <!-- <script src="http://d3js.org/d3.v2.min.js?2.8.1"></script> -->
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/underscore-min.js" ></script>
+  <script src='blockUI.js'></script>
+
+  
+  
+  <div class="contain-to-grid">
+      <!-- Header and Nav -->
+      <nav class="top-bar" data-topbar>
+          <ul class="title-area">
+              <!-- Title Area -->
+              <li class="name">
+                  <h1>
+                      <a href="../index.html">KEA2: Kinase Enrichment Analysis 2</a>
+                  </h1>
+              </li>
+              
+          </ul>
+   
+          <section class="top-bar-section">
+
+              <!-- Left Nav Section -->
+              <ul class="left">
+
+                  <li class="divider" ></li>
+
+                  <li class="has-dropdown" >
+
+                      <a class="active" id='kinase_network_by' href="#">Kinase Network by:</h1></a>
+
+                      <ul class="dropdown" id ='network'>
+
+                        <!--   <li><label>Phosphosite Level</label></li> -->
+
+                          <li class='li_all active' id='li_kinase_domains' onClick="change_matrix('kinase_domains'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_domains').classed('active',true); ">
+                            <a>Kinase-Substrate Gene Set Library with Phosphosites</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_sequence' onClick="change_matrix('kinase_seq'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_sequence').classed('active',true); ">
+                            <a>Kinase Domain Sequence Similarity</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_substrate' onClick="change_matrix('kinase_substrate'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_substrate').classed('active',true); "> 
+                            <a>Kinase Substrate Similarity</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_gene_ppi' onClick="change_matrix('kinase_gene_ppi'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_gene_ppi').classed('active',true); "> 
+                            <a>Protein Binding Partners</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_ip_nursa' onClick="change_matrix('kinase_ip_nursa'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_ip_nursa').classed('active',true); "> 
+                            <a>Co-precipiatated Proteins (NURSA)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_gene_l1000' onClick="change_matrix('kinase_gene_l1000'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_gene_l1000').classed('active',true); "> 
+                            <a>Differentially Expressed Genes Following Kinase Knockdown (L1000)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_tf' onClick="change_matrix('kinase_tf'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_tf').classed('active',true); "> 
+                            <a>Regulatory Transcription Factors</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_cl_achilles' onClick="change_matrix('kinase_cl_achilles'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_cl_achilles').classed('active',true); "> 
+                            <a>Cell Line Fitness following Kinase Knockdown (Achilles)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_cl_ccle' onClick="change_matrix('kinase_cl_ccle'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_cl_ccle').classed('active',true); "> 
+                            <a>Kinase Expression in Cancer Cell Lines (CCLE)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_cl_cosmiccnv' onClick="change_matrix('kinase_cl_cosmiccnv'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_cl_cosmiccnv').classed('active',true); "> 
+                            <a>Kinase Copy Number Variation Across Cancer Cell Lines (COSMIC)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_cl_cosmicmut' onClick="change_matrix('kinase_cl_cosmicmut'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_cl_cosmicmut').classed('active',true); "> 
+                            <a>Kinase Mutation Across Cancer Cell Lines (COSMIC)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_cl_proteomicsdb' onClick="change_matrix('kinase_cl_proteomicsdb'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_cl_proteomicsdb').classed('active',true); "> 
+                            <a>Kinase Abundance in Cell Lines/Tissues (ProteomicsDB)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_disease_omim' onClick="change_matrix('kinase_disease_omim'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_disease_omim').classed('active',true); "> 
+                            <a>Kinase Association with Disease (OMIM)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_phenotype_mgimpo' onClick="change_matrix('kinase_phenotype_mgimpo'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_phenotype_mgimpo').classed('active',true); "> 
+                            <a>Associated phenotypes in Mice (MGIMPO)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_drug_drugbank' onClick="change_matrix('kinase_drug_drugbank'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_drug_drugbank').classed('active',true); "> 
+                            <a>Drugs Targeting Kinases (DrugBank)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_drug_kinomescan' onClick="change_matrix('kinase_drug_kinomescan'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_drug_kinomescan').classed('active',true); ">                              
+                            <a>Drugs that Inhibit Kinase by >90% (KinomeScan)</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_pathway' onClick="change_matrix('kinase_pathway'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_pathway').classed('active',true); "> 
+                            <a>Membership in Biological Pathways</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_annot_go' onClick="change_matrix('kinase_annot_go'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_annot_go').classed('active',true); "> 
+                            <a>Gene Ontology Terms </a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_word_generif' onClick="change_matrix('kinase_word_generif'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_word_generif').classed('active',true); "> 
+                            <a>GeneRIF Term Similarity</a>
+                          </li> 
+                          <li class='li_all' id='li_kinase_word_textmining' onClick="change_matrix('kinase_word_textmining'); d3.selectAll('.li_all').classed('active', false); d3.select('#li_kinase_word_textmining').classed('active',true); "> 
+                            <a>Similarity of Associated Terms from Text Mining</a>
+                          </li>
+
+                      </ul>
+                      
+                  </li>
+
+                 <li class="divider"></li>
+                 
+              
+              <!-- ends the left panel of the header-->
+              </ul>
+   
+              <ul class="title-area">
+                <!-- Title Area -->
+                <li class="name" >
+                  <h1><a id='network_title'>Protein Domains</a></h1>
+                </li>
+                  
+              </ul>
+
+
+              <!-- Right Nav Section -->
+              <ul class="title-area right">
+                <li class='name'>
+                  <h1><a id='network_title' href='../adjacency_matrix_meta_network'>View Kinase-Cluster Network</a></h1>
+                </li>
+              </ul>
+
+          </section>
+      </nav>
+  </div>   
+ 
+
+  <body>
+
+  <!-- Start Row -->
+  <div class="row style_main_rows">
+
+    <div id='svg_div'></div>
+
+    <aside >
+
+      <p id='order_network'>Order Network: 
+      <select id="order">
+        <option value="group">by Cluster  </option>
+        <option value="name"> by Name     </option>
+        <option value="count">by Frequency</option>
+      </select>
+      </p>
+
+
+      <ul id='toggle'>
+        <li><a id='network_info' href="#"
+          onClick="
+          d3.select('#network_info').style('background-color','#909090');
+          d3.select('#cluster_info').style('background-color','#C8C8C8');
+          d3.select('#network_info_div').style('display','block');
+          d3.select('#bar_graph_div').style('display','none');
+          "
+          >Network Info</a></li>
+        <li><a id='cluster_info' href="#"
+          onClick="
+          d3.select('#network_info').style('background-color','#C8C8C8');
+          d3.select('#cluster_info').style('background-color','#909090');
+          d3.select('#network_info_div').style('display','none');
+          d3.select('#bar_graph_div').style('display','block');
+          <!-- d3.select('#bar_graph_div').append('text').text('Click on a cluster or kinase label.').style('margin-left','20px').attr('id','cluster_instructions'); -->
+          "
+          >Cluster Info</a></li>
+      </ul>
+
+
+      <div id='network_info_div'>
+      <p id='specific_description'>We obtained protein domain data for all human kinases using the Universal Protein Resource (Uniprot) (The Uniprot Consortium, Nucleic Acids Research, 2014), which has domain annotations from Pfam (Punta, Nucleic Acids Research, 2014) and Simple Modular Architecture Tool (SMART) (Letunic, 2012, Nucleic Acids Research). We used the Jaccard index to generate a kinase similarity network based on shared protein domain.</p>
+
+
+      <p id='link_description'>For more information on these kinase networks visit: </p>
+
+      <a href='https://sites.google.com/site/kinomeproject/home' target='_blank'>KEA2 Kinome Resources</a>
+
+      </div>
+
+
+
+      <div id='bar_graph_div' style='display:none;'>
+      <text style='margin-left:20px' id='cluster_instructions'>Click on a cluster or kinase label.</text>
+      </div>
+    </aside> 
+
+  <!-- End Row -->
+  </div>
+
+  <!-- Other scripts -->
+  <script src="js/underscore-min.js" ></script>
+  <script src="js/modernizr.js"></script>
+  <script src="js/foundation.js"></script>
+  <script src="js/foundation.topbar.js"></script>
+  <script src='d3_adj_matrix.js'></script>
+  <script type="text/javascript">generate_adj_matrix('kinase_domains');</script>
+  <!-- Initialize Foundation -->
+  <script>
+      $(document).foundation();
+  </script>
+
+  </body>
+
+</html>

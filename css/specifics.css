@@ -1,0 +1,170 @@
+#enrichment_button{
+ position:absolute;
+    top:130px;
+    left:2.5%;
+    width:210px;
+}
+
+#search_button{
+ position:absolute;
+    top:190px;
+    left:2.5%;
+    width:210px;
+}
+
+#library_description_panel{
+	position: absolute;
+		top:250px;
+		left:2.5%;
+		width:210px;
+}
+
+#pop_instructions{
+	position: absolute;
+		top:130px;
+		right:2.5%;
+		width:210px;
+		height:0px;
+}
+
+#input_panel_appearing{
+ position:absolute;
+    top:180px;
+    left:2.5%;
+    width:210px;
+    display:none;
+}
+
+#input_text_appearing{
+ height:0px;    
+ /*opacity:0.0;*/
+}
+
+#input_three_buttons_appearing{
+	position:absolute;
+	left:2.5%;
+	top:200px;
+	margin-left:5px;
+	display:none;
+	opacity:0.0;
+}
+
+#search_title_appearing{
+	position:absolute;
+	left:2.5%;
+	top:200px;
+	width:210px;
+	display:none;
+	opacity:0.0;	
+
+}
+
+#search_toggle_appearing{
+	position:absolute;
+	left:2.5%;
+	top:222px;
+	display:none;
+	margin:20px;
+}
+
+#search_terms_appearing{
+	position:absolute;
+	left:2.5%;
+	top:300px;
+	width:210px;
+	display:none;
+	opacity:0.0;
+}
+
+
+
+#search_terms_input_appearing{
+	position:absolute;
+	left:2.5%;
+	top:280px;
+	width:210px;
+	opacity:0.0;
+	height:10px;
+}
+
+#search_terms_buttons_appearing{
+	position:absolute;
+	left:2.5%;
+	top:240px;
+	width:210px;
+	display:none;
+	opacity:0.0;
+	margin-left:50px;
+}
+
+#search_elements_input_appearing{
+	position:absolute;
+	left:2.5%;
+	top:280px;
+	width:210px;
+	display:none;
+	opacity:0.0;
+}
+
+#search_elements_buttons_appearing{
+	position:absolute;
+	left:2.5%;
+	top:240px;
+	width:210px;
+	display:none;
+	opacity:0.0;
+	margin-left:50px;
+}
+
+
+#search_elements_appearing{
+	position:absolute;
+	left:2.5%;
+	top:400px;
+	width:210px;
+	display:none;
+	/*opacity:0.0;*/
+}
+
+
+#enrichment_panel{
+	position: absolute;
+		top:130px;
+		right:2.5%;
+		width:210px;
+		display:none;
+		opacity:0;
+		height:0px;
+}
+
+#name_of_network{
+	position:absolute;
+	top:70px;
+	/*left-margin: auto;*/
+	left:50%;
+	width:800px;
+	margin-left:-400px;
+}
+
+#network_svg{
+	position: absolute;
+	top:45px;
+}
+
+
+#node_info_panel{
+	position:absolute;
+	right:2.5%;
+	top:130px;
+	width:210px;
+	display:none;
+	opacity:0.0;
+}
+
+#enrichment_results{
+	opacity:0;
+}
+
+#style_svg_download{
+	margin-top:7px;
+}

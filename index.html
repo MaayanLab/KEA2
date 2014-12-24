@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel='stylesheet' href='css/specifics.css'/>
+</head>
+
+<script src='js/d3.min.js'></script>
+<script src='js/jquery.js'></script>
+<script src='js/underscore-min.js'></script>
+<script src='js/blockUI.js'></script>
+
+<body>
+
+
+
+<!-- The body  -->
+
+<!-- This keeps the title within the grid -->
+<div class="contain-to-grid">
+  <!-- Header and Nav -->
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+          <h1>
+              <a href="index.html">KEA2: Kinase Enrichment Analysis 2</a>
+          </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="divider" ></li>
+
+        <li class="has-dropdown" >
+          <a class="active" href="#">Select Gene Set Library</a>
+          <ul class="dropdown">
+
+            <li><label>Phosphosite Level</label></li>
+            <li class='li_all active' id='li_kinase_psite'>
+                <a href="#" onClick="make_new_network('kinase_psite');">Literature Based Kinase-Substrate Gene Set Library with Phosphosites</a>
+            </li> 
+            <li class='li_all' id='li_term_psite'>
+                <a href="#" onClick="make_new_network('term_psite');">Biological Terms Associated with Phosphosites from Literature Mining </a>
+            </li> 
+
+            <li class="divider"></li>
+
+            <li><label>Gene Level</label></li>
+            <li class='li_all' id='li_kinase_gene'>
+                <a href="#" onClick="make_new_network('kinase_gene');" >Literature Based Kinase-Substrate Gene Set Library</a>
+            </li>
+            <li class='li_all' id='li_term_gene'>
+                <a href="#" onClick="make_new_network('term_gene');">Biological Terms Associated with Phosphorylated Proteins from Literature Mining</a>
+            </li>
+            <li class='li_all' id='li_silac_gene'>
+                <a href="#" onClick="make_new_network('silac_gene');" >SILAC Experiment Gene Set Library</a>
+            </li>
+            <li class='li_all' id='li_geo_up_gene'>
+                <a href="#" onClick="make_new_network('geo_up_gene');" >Up-regulated Genes following Kinase Perturbation from GEO</a>
+            </li>
+            <li class='li_all' id='li_geo_down_gene'>
+                <a href="#" onClick="make_new_network('geo_down_gene');" >Down-regulated Genes following Kinase Perturbation from GEO</a>
+            </li>
+            <li class='li_all' id='li_l1000_up_gene'>
+                <a href="#" onClick="make_new_network('l1000_up_gene');" >Up-regulated Genes following Kinase Perturbation from the L1000 Connectivity Map</a>
+            </li>
+            <li class='li_all' id='li_l1000_down_gene'>
+                <a href="#" onClick="make_new_network('l1000_down_gene');" >Down-regulated Genes following Kinase Perturbation from the L1000 Connectivity Map</a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="divider"></li>
+      </ul>
+
+
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+
+            <li class="divider"></li>
+
+            <li>
+                <a href='adjacency_matrix_kinase_network'>View Kinase Networks</a>
+            </li>
+
+
+            <li class="divider"></li>
+
+            <li class='has-dropdown'>
+                <a href="">Downloads</a>
+                <ul class='dropdown'>
+                    <li><a data-reveal-id='kinNetModal' > Kinase Networks </a></li>
+                    <li><a data-reveal-id='gslModal'> Gene Set Libraries and Databases</a></li>
+                   <!--  <li><a data-reveal-id='scriptsModal'> Scripts and Additional Documentation </a></li> -->
+                </ul>
+            </li>
+            
+            <li class="divider"></li>
+
+            <li class='has-dropdown'>
+                <a href="#">Help</a>
+                <ul class='dropdown'>
+                    <li> <a href=''> Help PDF </a> </li>
+                    <li> <a data-reveal-id='aboutModal'> About </a></li>
+                </ul>
+            </li>
+
+            <li class="divider"></li>
+
+        </ul>
+
+
+
+    </section>
+  </nav>
+</div>   
+
+<!-- End Header and Nav --> 
+
+
+<div id='force_directed_graph'></div>
+
+<!-- Main Grid Section -->
+
+
+<h5 id='name_of_network' class="text-center">Literature Based Kinase-Substrate Library at the Phosphosite Level </h5>
+
+<a role="button" href="#" class="button small" id='enrichment_button' onClick="open_enrichment_panel()">Run Enrichment Analysis</a>
+<a role="button" href="#" class="button small" id='search_button' onClick='open_search_panel()'>Search Network</a>
+
+
+<div class="panel callout" id='library_description_panel' >
+    <p class="style_library_description_title">Gene Set Library Description:</p>
+    <p class="style_library_description_text" id="library_description">This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates with phosphosites. </p>
+</div>
+<form>
+  <div id='input_panel_appearing' class="input_text">
+      <textarea class='input_genes' id="input_text_appearing"  placeholder="Enter phosphosites here on separate lines" width="100%"></textarea>
+  </div>
+
+  <div id='input_three_buttons_appearing' >
+      <ul class="button-group ">
+          <li><input id = "submitButton"  selected="true" type="button" name="button" value="Submit"  class="button tiny" onClick = " gene_fill(G_VAR.nodes, this.form.input_text_appearing.value, G_VAR.indicatorColor, G_VAR.gmt_flip, G_VAR.gmt, G_VAR.random_number);"/> </li> 
+          <li><input id = "exampleButton"                 type="button" name="button" value="Example" class="button tiny" onclick = "example_random(G_VAR.gmt, G_VAR.randomArray, 30);" /></li>
+          <li><input                                      type="button" name="button" value="Clear"   class="button tiny" onclick = "clear_text_area(this.form.input_text_appearing); clear_enrichment(G_VAR.nodes);"/></li>
+      </ul>   
+  </div>
+</form>
+
+
+<!-- Toggle button for term and element -->
+<dl id="search_toggle_appearing" class="tabs" data-tab>
+    <dd id='toggle_search_switch' class="active"> <a href="#panel1a" onClick="d3.select('#formFind1').style('display','block'); d3.select('#formFind2').style('display', 'none');"> Term </a> </dd>
+    <dd id='toggle_element_switch' >               <a href="#panel2a" onClick="d3.select('#formFind1').style('display','none');  d3.select('#formFind2').style('display', 'block'); show_search_element(); "> Element </a> </dd>
+</dl>
+
+
+
+<!-- Search Term Buttons -->
+<form id='formFind1'>
+  <textarea id="search_terms_input_appearing"  type="text" placeholder="Enter search terms here on separate lines" ></textarea>        
+  <ul id='search_terms_buttons_appearing' class="button-group">
+
+      <li> <input type="button" name="button" value="Search" selected="true" class="button tiny" onclick="highlight_search_terms(G_VAR.nodes, this.form.search_terms_input_appearing.value, G_VAR.indicatorColor , G_VAR.width); " /> </li>
+      <li> <input type="button" name="button" value="Clear" class="button tiny"                  onClick="clear_search_only(this.form.search_terms_input_appearing); remove_highlighted_nodes();"/> </li>
+
+  </ul>
+</form>
+
+
+<!-- Search Elements Buttons -->
+
+<form id='formFind2'> 
+  <textarea id="search_elements_input_appearing" rows = "8" type="text" placeholder="Enter search elements here on separate lines"></textarea>
+  <ul id='search_elements_buttons_appearing' class="button-group">
+
+      <li> <input type="button" name="button" value="Search" selected="true" class="button tiny" onclick="highlight_search_elements(this.form.search_elements_input_appearing.value , G_VAR.width); " /> </li>
+      <li> <input type="button" name="button" value="Clear" class="button tiny"                  onClick="clear_search_only(this.form.search_elements_input_appearing); remove_highlighted_nodes();"/> </li>
+
+  </ul>
+</form>  
+
+
+
+
+<div class="panel callout" id='enrichment_panel' >
+
+    <p class="style_library_description_title">Enrichemnt Results:</p>
+
+    <div id='enrichment_results'></div>
+    
+    <div class='text-center' id='totalGenesFound'></div>
+
+    <div id="force_download_link"></div>
+
+</div>
+
+
+<div class="panel" id='node_info_panel' >
+    <em  id='nodeName' ></em>
+    <div id="additionalInfo" class='panel callout'></div>
+</div>
+
+
+    <div id="no_matched_genes" class="reveal-modal medium" data-reveal>
+            <h5 id='not_found_modal_title' style="text-align: center">No input phosphosites were found in the phosphosite set library. </h5>
+            <p class='text-center' id='not_found_modal_instructions'>Please enter one phosphosite per line in the following format: gene name, underscore, phosphorylated amino acid, and amino acid position (e.g. PPP1R8_S57).</p>
+            <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+
+    <div id="no_matched_terms" class="reveal-modal medium" data-reveal>
+            <h5 id='not_found_modal_title' style="text-align: center">No search terms were found in the library. </h5>
+            <p class='text-center' id='not_found_modal_instructions'></p>
+            <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="no_matched_elements" class="reveal-modal medium" data-reveal>
+            <h5 id='not_found_modal_title' style="text-align: center">No search elements were found in the library. </h5>
+            <p class='text-center' id='not_found_modal_instructions'></p>
+            <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id='kinNetModal' class='reveal-modal large' data-reveal>
+        
+        <h4 id='titleKinaseNetworks'>Kinase Networks</h4>
+        
+        <div class='panel'>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Substrate </strong>
+                </div>
+                <div class='small-9 columns'>
+                    
+                    Kinase network based on similarity of substrates from the KEA gene-set library calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_substrate_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_substrate_net.tsv">TSV</a>
+                    
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Substrate at Phosphosite Level</strong>
+                </div>
+                <div class='small-9 columns'>
+                    
+                    Kinase network based on similarity of substrates at the phosphosite level from the KEA gene-set library calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_substrate_psite_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_substrate_psite_net.tsv">TSV</a>
+                    
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Protein-Protien Interactions </strong>
+                </div>
+                <div class='small-9 columns'>
+                    
+                    Kinase network based on similarity of interacting proteins calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_ppigene_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_ppigene_net.tsv">TSV</a>
+                    
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Phylogeny </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of similarity of amino acid sequence of the kinase domain calculated using ClustalW2 online sequence alignment tool. 
+                    Format: <a href="kinase_networks/kk_phylogeny_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_phylogeny_net.tsv">TSV</a>
+                </div>
+            </div>
+            
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Upstream Putative Regulatory Transcription Factors </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of putative regulatory transcription factors from the ChEA gene-set library calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_tf_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_tf_net.tsv">TSV</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Kinomescan Kinase Inhibition </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of kinase inhibitors from Kinomescan calculated using the weighted Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_kinomescan_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_kinomescan_net.tsv">TSV</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Drugbank </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of drugs known to target kinases from DrugBank calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_drugbank_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_drugbank_net.tsv">TSV</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Pathway </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of the pathways a kinase is a member of calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_pathway_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_pathway_net.tsv">TSV</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Differentially Expressed Genes LINCS L1000 </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of the signature of differentially expressed genes after kinase knowkdown from the LINCS L1000 experiments calculated using the cosine distance of the characteristic directions of gene expression. 
+                    Format: <a href="kinase_networks/kk_degene_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_degene_net.tsv">TSV</a>
+                </div>
+            </div>
+
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Association with Phosphorylated Genes </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of kinase associations with phosphorylated genes from literature mining calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_phogene_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_phogene_net.tsv">TSV</a>
+                </div>
+            </div>
+
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Kinase Association with Biological Terms </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Kinase network based on similarity of kinase associations with biological terms from literature mining calculated using the Jaccard coefficient. 
+                    Format: <a href="kinase_networks/kk_biophrase_net.xlsx" download>Excel,&nbsp</a>
+                    <a href="kinase_networks/kk_biophrase_net.tsv">TSV</a>
+                </div>
+            </div>
+
+        </div>
+        <div class='panel'>
+            <div class='row downloadList'> 
+                <div class='small-3 columns title_modal'><strong>Download All Kinase Networks</strong></div>
+                <div class='small-9 columns'>Download a Zip file with all Kinase networks.&nbsp<a href="kinase_networks/kinase_networks.zip">Zip</a></div>
+            </div>            
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id='gslModal' class='reveal-modal large' data-reveal>
+  
+        <h4 id='titleKinaseNetworks'>Gene Set Libraries and Databases</h4>
+        
+        <div class='panel'>
+
+           
+            <div class='small-12'><h6>Phosphosite Level</h6></div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Substrate Gene Set Library with Phosphosites </strong>
+                </div>
+                
+                <div class='small-9 columns'>
+                    This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates with phosphosites. 
+                    Format: <a href="gsl/kinase-substrate_phospho-site_level_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/kinase-substrate_phospho-site_level_set_library.tsv">TSV</a>   
+                </div>
+            </div>           
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Substrate Database at Phospho-site Level with Pubmed IDs and Resources </strong>
+                </div>
+
+                <div class='small-9 columns'>
+                    This is a database of kinase-substrate interactions at the phospho-site level with Pubmed IDs and resources. 
+                    Format: <a href="gsl/kinase_substrate_phospho-site_level_pmid_resource_database.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/kinase_substrate_phospho-site_level_pmid_resource_database.txt" download>TSV</a>   
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Substrate/Binding Database at Protein Level with Pubmed IDs and Resources </strong>
+                </div>
+
+                <div class='small-9 columns'>
+                    This is a database of kinase-substrate and kinase-binding interactions at the protein level with Pubmed IDs and resources. 
+                    Format: <a href="gsl/kinase_substrate_and_interaction_protein_level_pmid_resource_database.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/kinase_substrate_and_interaction_protein_level_pmid_resource_database.txt" download>TSV</a>   
+                </div>
+            </div>
+
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Biological Terms Associated with Phosphosites from Literature Mining </strong>
+                </div>
+                <div class='small-9 columns title_modal'>
+                     This library was made by text mining abstracts from papers that describe specific phosphosites on protein substrates. The library terms are biological terms that are associated with specific phosposites.
+                    Format: <a href="gsl/biological_terms_associated_with_phospho-sites_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/biological_terms_associated_with_phospho-sites_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+
+        </div>
+
+        <div class='panel'>
+
+            <div class='small-12'><h6> Gene Level </h6></div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Kinase-Substrate Gene Set Library </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates without phosphosites.
+                    Format: <a href="gsl/kinase-substrate_protein_level_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/kinase-substrate_protein_level_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Biological Terms Associated with Phosphorylated Proteins from Literature Mining</strong>
+                </div>
+                <div class='small-9 columns'>
+                    This library was made by text mining abstracts from papers that describe specific phosphosites on protein substrates. The terms are biological terms that are associated with specific protein substrates.
+                    Format: <a href="gsl/biological_terms_associated_with_phospho-proteins_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/biological_terms_associated_with_phospho-proteins_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> SILAC Experiment Gene Set Library </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This library was made by gathering phosphorylation substrates at the gene level from Stable Isotope Labeling by Amino acids in Cell culture (SILAC) phosphoproteomics experiments. The terms are SILAC experiments and the elements are protein substrates. Click on experiment terms to be redirected to the publication's pubmed page.
+                    Format: <a href="gsl/SILAC_experiment_protein_level_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/SILAC_experiment_protein_level_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Up-regulated Genes following Kinase Perturbation from GEO </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This library was made by finding genes that were up-regulated after kinase perturbation from the Gene Expression Omnibus (GEO). The terms are kinase perturbation experiments and the elements are up-regulated genes.
+                    Format: <a href="gsl/up-regulated_genes_following_kinase_perturbation_GEO_ChrDir_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/up-regulated_genes_following_kinase_perturbation_GEO_ChrDir_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Down-regulated Genes following Kinase Perturbation from GEO </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This library was made by finding genes that were down-regulated after kinase perturbation from the Gene Expression Omnibus (GEO). The terms are kinase perturbation experiments and the elements are down-regulated genes.
+                    Format: <a href="gsl/down-regulated_genes_following_kinase_perturbation_GEO_ChrDir_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/down-regulated_genes_following_kinase_perturbation_GEO_ChrDir_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Up-regulated Genes following Kinase Perturbation from the L1000 Connectivity Map </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This library was made by finding genes that were up-regulated after kinase perturbationfrom the Library of Integrated Network based Cellular Signatures (L1000) Connectivity Map. The terms are kinase perturbation experiments and the elements are up-regulated genes.
+                    Format: <a href="gsl/up-regulated_genes_following_kinase_perturbation_L1000_ChrDir_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/up-regulated_genes_following_kinase_perturbation_L1000_ChrDir_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'>
+                    <strong> Down-regulated Genes following Kinase Perturbation from the L1000 Connectivity Map </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This library was made by finding genes that were down-regulated after kinase perturbationfrom the Library of Integrated Network based Cellular Signatures (L1000) Connectivity Map. The terms are kinase perturbation experiments and the elements are down-regulated genes.
+                    Format: <a href="gsl/down-regulated_genes_following_kinase_perturbation_L1000_ChrDir_set_library.xlsx" download>Excel,&nbsp</a>
+                            <a href="gsl/down-regulated_genes_following_kinase_perturbation_L1000_ChrDir_set_library.tsv">TSV</a>   
+                </div>
+            </div>
+        </div>
+
+        <div class='panel'>
+            <div class='row downloadList'>
+                <div class='small-3 columns title_modal'><strong>Download All Gene Set Libraries</strong></div>
+                <div class='small-9 columns'>Download a Zip file with all the gene set libraries.&nbsp<a href="gsl/gsl_database.zip">Zip</a></div>
+            </div>            
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+
+
+    <div id='scriptsModal' class='reveal-modal large' data-reveal>
+  
+        <h4 id='titleKinaseNetworks'>Scripts and Additional Documentation</h4>
+        
+        <div class='panel'>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns'>   
+                    <strong> Biological Term Script </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This python script was used for literature mining of abstracts.  
+                    Format <a href="scripts/biological_terms.py" download>Script</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns'>   
+                    <strong> Differentially Expressed Genes After Kinase Perturbation from GEO </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This MatLab script was used to generate the gene set librarys from differentially expressed genes after kinase perturbation from the Gene Expression Omnibus.  
+                    <a href="kinase_networks/kk_substrate_net.xlsx" download>Script</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns'>   
+                    <strong> Differentially Expressed Genes After Kinase Perturbation from the L1000 Connectivity Map </strong>
+                </div>
+                <div class='small-9 columns'>
+                    This MatLab script was used to generate the gene set library from differentially expressed genes afer kinase perturbation from the L1000 Connectivity Map.  
+                    <a href="kinase_networks/kk_substrate_net.xlsx" download>Script</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns'>   
+                    <strong> Script Documentation </strong>
+                </div>
+                <div class='small-9 columns'>
+                    Documnentation for the above scripts.  
+                    <a href="scripts/documentation.txt" download>Script</a>
+                </div>
+            </div>
+
+            <div class='row downloadList'>
+                <div class='small-3 columns'><strong>Download All Scripts</strong></div>
+                <div class='small-9 columns'>Download a Zip file with all scripts.&nbsp<a href="">Zip</a></div>
+            </div>            
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+
+    <div id='aboutModal' class='reveal-modal large' data-reveal>
+  
+        <h4 id='titleKinaseNetworks'>About</h4>
+
+        <div class='panel' style='text-align:center;'>
+
+            <div id="MSSMlogo" style='display:inline-block' >
+                <a href="http://www.mountsinai.org/"><img src="img/Mount_Sinai_hospital_logo.png" height="80" alt="MSSM logo" name="MSSMlogo" ></a>
+            </div>
+
+            <div id="maayan" style='display:inline-block; min-width:340px'>
+                <p>&copy 2013 <a href="http://www.mssm.edu/labs/maayan">Ma'ayan Laboratory</a> </p>
+                <a href="http://icahn.mssm.edu">Icahn School of Medicine at Mount Sinai</a>
+            </div>
+             
+            <div id="SBCNYlogo"style='display:inline-block' >
+                <a href="http://sbcny.org/"><img src="img/SBCNY.png" alt="SBCNY logo" name="SBCNYlogo" ></a>
+            </div>
+              
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+
+
+
+
+
+<!-- test php script 
+-->
+
+
+<?php
+$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+$txt = "John Doe\n";
+fwrite($myfile, $txt);
+$txt = "Jane Doe\n";
+fwrite($myfile, $txt);
+fclose($myfile);
+?>
+
+
+<!-- Scripts -->
+<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+
+<script src='js/foundation.js'></script>
+<script src='js/foundation.topbar.js'></script>
+<script src='js/foundation.tab.js'></script>
+<script src='js/foundation.reveal.js'></script>
+<script src='js/foundation.tooltip.js'></script>
+
+<!-- Initialize Foundation -->
+<script>
+    $(document).foundation();
+</script>
+
+<!-- network script -->
+<script src='js/button_scripts.js'></script>
+<script src='js/original_scripts.js'></script>
+<script src='js/large_force_directed_graph_d3.js'></script>
+<script src='js/initialize_webpage.js'></script>
+<script> run_initialize_webpage(make_new_network); </script>
+</body>
