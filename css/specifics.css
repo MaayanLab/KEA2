@@ -1,15 +1,17 @@
 #enrichment_button{
- position:absolute;
-    top:130px;
-    left:2.5%;
-    width:210px;
+	position:absolute;
+  top:130px;
+  left:2.5%;
+  width:210px;
+  font-size: 15px;
 }
 
 #search_button{
- position:absolute;
-    top:190px;
-    left:2.5%;
-    width:210px;
+	position:absolute;
+  top:190px;
+  left:2.5%;
+  width:210px;
+  font-size: 15px;
 }
 
 #library_description_panel{
@@ -167,4 +169,10 @@
 
 #style_svg_download{
 	margin-top:7px;
+}
+
+
+#library_dropdown{
+	font-weight: 800;
+	width: 405px;
 }

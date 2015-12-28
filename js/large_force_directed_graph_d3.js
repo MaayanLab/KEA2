@@ -22,9 +22,12 @@ function updateWindow(){
 
     // // redraw the network when the window size is changed 
     // make_new_network(inst_network_name)
+
+    // delay window redraw 
+    setTimeout(make_new_network,500,inst_network_name);
 };
 
-window.onresize = updateWindow;
+ window.onresize = updateWindow;
 
 
 
@@ -51,7 +54,8 @@ function make_new_network( inst_network_name ) {
   // update instructions height, if not on the initial network 
   if (initialized_state == 1){
     // update the instruction panel height instantaneously  
-    d3.select('#pop_instructions').style('height', network_description[inst_network_name]['instruct_height']+'px');
+    d3.select('#pop_instructions')
+      .style('height', network_description[inst_network_name]['instruct_height']+'px');
 
     console.log(inst_network_name)
     console.log(network_description[inst_network_name]['instruct_height'])
@@ -106,7 +110,8 @@ function make_new_network( inst_network_name ) {
                 .charge(-300)
                 .linkDistance(15)
                 .gravity(0.6)
-                .size([x, 800]);
+                .size([x, 800])
+                .alpha(0.01);
 
   // prevent the network from being too centered
   if (y> 1050){
@@ -179,6 +184,8 @@ function make_new_network( inst_network_name ) {
         .links(graph.links)
         .start();
 
+    // force.tick(); 
+    // force.stop();
 
     var link = svg.selectAll(".link")
         .data(graph.links)

@@ -115,7 +115,8 @@ function run_initialize_webpage( callback_make_new_network ) {
 		.append('div').attr('id','pop_instructions_text')
 
 	d3.select('#pop_instructions_text')
-		.append('p').text('Instructions').attr('class','style_library_description_title')
+		.append('p').text('Instructions')
+		.attr('class','style_library_description_title');
 
 	d3.select('#pop_instructions_text')
 		.append('p')
@@ -132,13 +133,24 @@ function run_initialize_webpage( callback_make_new_network ) {
 	d3.select('#pop_instructions_text')
 		.style('opacity',0)
 		.style('height','0px')
-		.transition().delay(500).duration(1000).style('opacity',1)
+		.transition().delay(2700).duration(1000).style('opacity',1)
 
 	d3.select('#pop_instructions')
 		.style('opacity',0)
-		.transition().duration(200).style('opacity',1)
+		.transition().delay(2000).duration(200).style('opacity',1)
 		.transition().duration(1000).style('height', network_description[inst_network_name]['instruct_height']+'px')
 
+	setTimeout(click_enr, 1000);
+
+	function click_enr(){
+
+		$('#enrichment_button').trigger('click');
+
+		// highlight library dropdown 
+		d3.select('#library_dropdown')
+			.transition().duration(500)
+			.style('background', '#008cba');
+	}
 
 	// vertical positions for the node_info_panel
 	node_info_panel_y_high = 130;
