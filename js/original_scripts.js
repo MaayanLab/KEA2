@@ -168,17 +168,28 @@ function clear_enrichment(){
 
 
 	// reset the class of the enriched nodes 
-	d3.selectAll('.node_enr').attr('class','node');
+	d3.selectAll('.node_enr')
+		.attr('class','node');
   // first reset all nodes that are not enriched, enriched nodes have a different class
-  d3.selectAll('.node').select('circle').transition().duration(10).attr('r',4).style('fill','#1f77b4');
+  d3.selectAll('.node')
+  	.select('circle')
+		.transition().duration(10)
+		.attr('r',4)
+		.style('fill','#1f77b4');
 
   // first reset font-weight 
-  d3.selectAll('.node').select('text').transition().duration(10).style('font-weight','normal').style('opacity',0.2);
+  d3.selectAll('.node')
+  	.select('text')
+		.transition().duration(10)
+		.style('font-weight','normal')
+		.style('opacity',0.2);
 
 	// if node information panel is present, then move it up 
 	if (d3.select('#node_info_panel').style('display') == 'block'){
 		// re-position the panel at the top of the right side 
-		d3.select('#node_info_panel').transition().duration(1000).style('top',node_info_panel_y_high+'px');
+		d3.select('#node_info_panel')
+			.transition().duration(1000)
+			.style('top',node_info_panel_y_high+'px');
 	}; 
 
 	// if there is no node information panel and the instructions are not shown then show the instrutions again 
@@ -492,13 +503,14 @@ function calculate_gene_fill(nodes, elements, hexCode, gmt_flip, gmt){
 		// Highlight the enriched terms in the network 
 		//
 		// define a scale for the opacity of the circles 
-		scale_radius = d3.scale.linear().domain([0, max_logpval]).range([4.1,7]);
+		scale_radius = d3.scale.linear().domain([0, max_logpval]).range([4.1,20]);
 		// define a scale for the stroke width of the outline of the circle
 		scale_stroke = d3.scale.linear().domain([0, max_logpval]).range([1.5,2]);
 		
 
+		///////////////////////////////////////////////////
 		// highlight the enriched terms in the network 
-		//
+		///////////////////////////////////////////////////
 		// reset the class of the previously enriched nodes 
 		d3.selectAll('.node_enr').attr('class','node');
 
@@ -508,15 +520,33 @@ function calculate_gene_fill(nodes, elements, hexCode, gmt_flip, gmt){
 			// get the -log pval (its the third column)
 			inst_log_pval = -Math.log(nodeList[inst][1]);
 
+			// make other nodes less visible 
+			d3.selectAll('.node')
+				.select('circle')
+				.style('opacity',0.1);
+
+			d3.selectAll('.node')
+				.select('text')
+				.style('opacity',0.1);
+
 	    // highlight the selected node and increase the node size
 	    //
 	    // highlight node
-	    d3.select('#id_'+inst_node_name.replace('&','') ).select('circle')
+	    d3.select('#id_'+inst_node_name.replace('&','') )
+	    	.select('circle')
 	    	// .transition().duration(150).style('stroke-width', 1.5)
-	    	.transition().duration(150).attr('r', scale_radius(inst_log_pval))
+	    	.transition().duration(150)
+	    	.attr('r', scale_radius(inst_log_pval))
+	    	.style('opacity',0.5);
 
 	    // make name bold 
-	    d3.select('#id_'+inst_node_name.replace('&','') ).select('text').transition().duration(10).style('opacity',1);    
+	    d3.select('#id_'+inst_node_name.replace('&','') )
+	    	.select('text')
+	    	.transition().duration(10)
+	    	.style('opacity',1)
+	    	// !!! increase font-size of enriched terms 
+	    	.style('font-size','15px')
+	    	.style('font-weight',900)
 
 	    // change the class of the node
 	    d3.select('#id_'+inst_node_name.replace('&','') ).attr('class','node_enr');
@@ -820,7 +850,7 @@ function gene_fill(nodes, elements, hexCode, gmt_flip, gmt, random_number){
 	// Creates a bar graph and a table that shows the most significant results of the analysis.
 	// Creates a text file containing the full table.
 
-	// console.log('calculating enrichment')
+	console.log('Calc Enr in gene_fill')
 
 	// remove previous enrichment download buttons
 	d3.select('#style_download_enrichment_results').remove();
@@ -1101,7 +1131,10 @@ function shrink_network_view(){
 function add_node_highlights(found_terms){
 
 	// reset all strokes
-	d3.selectAll('.node').select('circle').style('stroke','white').style('stroke-width','1.5px');
+	d3.selectAll('.node')
+		.select('circle')
+		.style('stroke','white')
+		.style('stroke-width','1.5px');
 	d3.selectAll('.node_enr').select('circle').style('stroke','white').style('stroke-width','1.5px');
 	d3.selectAll('.node_select_enr').select('circle').style('stroke','white').style('stroke-width','1.5px');
 

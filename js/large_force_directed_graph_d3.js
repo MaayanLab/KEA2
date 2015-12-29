@@ -15,9 +15,12 @@ function updateWindow(){
     var x = w.innerWidth  || e.clientWidth || g.clientWidth  ;
     var y = w.innerHeight || e.clientHeight|| g.clientHeight ;
 
-    x = w.innerWidth || e.clientWidth || g.clientWidth;
-    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    // // make svg as large as the page window 
+    // x = w.innerWidth || e.clientWidth || g.clientWidth;
+    // y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 
+    x = '1000px';
+    y = '800px';
     svg.attr("width", x).attr("height", y);
 
     // // redraw the network when the window size is changed 
@@ -27,7 +30,7 @@ function updateWindow(){
     setTimeout(make_new_network,500,inst_network_name);
 };
 
- window.onresize = updateWindow;
+ // window.onresize = updateWindow;
 
 
 
@@ -118,20 +121,26 @@ function make_new_network( inst_network_name ) {
     y = 1050;
   };
 
+  // x = '1200px';
+  // y = '800px';
+  // // svg.attr("width", x).attr("height", y);
+
   // initialize svg 
-  svg = d3.select("#force_directed_graph").append("svg")
+  svg = d3.select("#force_directed_graph")
+      .append("svg")
       .attr("width", x)
       .attr("height", y)
+      // .style('margin-left','50px')
       .attr('id','network_svg' )
       .append('svg:g')
         .call(d3.behavior.zoom().scaleExtent([0.25,2.0]).on("zoom", redraw))
       .append('svg:g');
 
   svg.append('svg:rect')
-      .attr('width', 2*x)
-      .attr('height', 2*y)
-      .attr('x', -0.5*x)
-      .attr('y', -0.5*y)
+      .attr('width', x)
+      .attr('height', y)
+      .attr('x', x)
+      .attr('y', y)
       .attr('fill', 'white');
 
   console.log('setting up block modal')
@@ -200,7 +209,12 @@ function make_new_network( inst_network_name ) {
         .enter().append('g')
         .attr("class", "node")
         .on('mouseover', function() {
-          d3.select(this).select('text').transition().duration(50).style('opacity',1).style('font-weight','bold');
+          d3.select(this).select('text')
+            .transition()
+            .duration(50)
+            .style('opacity',1)
+            .style('font-weight','bold')
+            // style('font-size','15px');
         })
         .on('mouseout', function() {
 
@@ -273,7 +287,13 @@ function make_new_network( inst_network_name ) {
               d3.select(this).select('circle').transition().duration(150).style('fill','#A00000');
             }
             // make name bold 
-            d3.select(this).select('text').transition().duration(10).style('font-weight','bold').style('opacity',1);
+            d3.select(this)
+              .select('text')
+              .transition()
+              .duration(10)
+              .style('font-weight','bold')
+              .style('font-size','17px')
+              .style('opacity',1);
 
             // change the class of the node to node_select or node_select_enr 
             //
