@@ -44,7 +44,7 @@
 <div id="content">
 
   <a href="/clustergrammer/">
-  <img class='help_figure' id='clustergrammer_logo' src="static/img/clustergrammer_logo.png" alt="Clustergrammer"> 
+  <!-- <img class='help_figure' id='clustergrammer_logo' src="static/img/clustergrammer_logo.png" alt="Clustergrammer">  -->
   </a>
   <h4 id="subtitle">A web-based visualization tool that enables users and web-based applications to easily generate interactive and shareable clustergram-heatmap visualizations from a matrix of data.</h4>
 
@@ -61,7 +61,7 @@
 
 
 
-    <img class='help_figure' id='upload_homepage' src="static/img/upload_homepage.png" alt="Upload"> 
+    <!-- <img class='help_figure' id='upload_homepage' src="static/img/upload_homepage.png" alt="Upload">  -->
     <p class="caption">Fig. 1 Screenshot of homepage upload section.</p>
 
     <p>and have a .txt or .tsv file extension (download an example matrix here: <a href="/txt/example_matrix.txt" download>example_matrix.txt</a> ). Once uploaded the user will be redirected to a visualization page where they can interact with their matrix visualization. The visualization page URL can also be used to return to the visualization at a later time or to share it with others. </p>
@@ -99,7 +99,7 @@
 
 
     <!-- production -->
-    <iframe id='iframe_preview' src="/clustergrammer/demo/566f6bbfb1a04e7f4087fcad?preview=true&demo_text_size=30" frameBorder="0"></iframe> 
+    <!-- <iframe id='iframe_preview' src="/clustergrammer/demo/566f6bbfb1a04e7f4087fcad?preview=true&demo_text_size=30" frameBorder="0"></iframe>  -->
 
     <!-- local -->
     <!-- <iframe id='iframe_preview' src="/clustergrammer/demo/566f6ce2b1a04e810e0ed0a2?preview=true&demo_text_size=30" frameBorder="0"></iframe>  -->
@@ -113,35 +113,35 @@
     <h5 class='section_title'>Reorder</h5>
     <p>Users can reorder all rows or all columns based on 'Cluster' or 'Rank' using the buttons on the sidebar, see Fig. 3. The Cluster ordering or rows and columns is calculated using hierarchical clustering (clustering is done using cosine distance and average linkage using the Python package SciPy). Users can also reorder the matrix based on any row or column by double-clicking any row or column label. </p>
 
-    <img class='help_figure' id='reorder_buttons' src="static/img/reorder_buttons.png" alt="Reorder_buttons"> 
+    <!-- <img class='help_figure' id='reorder_buttons' src="static/img/reorder_buttons.png" alt="Reorder_buttons">  -->
     <p class="caption">Fig. 3 Row and column reorder buttons - part of sidebar controls.</p>
 
     <h5 class='section_title'>Search</h5>
     <p>Clustergrammer allows users to search for rows using the sidebar search box, see Fig. 4. The row search has autocomplete that matches your partial search to the row names. Pressing search also zooms into and centers the selected row in the visualization.</p>
 
-    <img class='help_figure' id='row_search_with_autocomplete' src="static/img/row_search_with_autocomplete.png" alt="Reorder_buttons"> 
+    <!-- <img class='help_figure' id='row_search_with_autocomplete' src="static/img/row_search_with_autocomplete.png" alt="Reorder_buttons">  -->
     <p class="caption">Fig. 4 Row search with autocomplete - part of sidebar controls.</p>
 
     <h5 class='section_title'>Dendrogram-like Colorbar</h5>
 
     <p>Groups of similar rows/columns can be identified using the dendrogram-like colorbar. Groups are calculated for several similarity threshold distances and the group size can be controlled using the sidebar group sliders, see Fig. 5. Moving the slider to the left reduces the group sizes and moving to the right increases the group sizes. Hovering over a colorbar will how you the rows or columns that are in the group and clicking on a colorbar will bring up the group in a pop-up modal, which allows a user to copy the list.  </p>
 
-    <img class='help_figure colorbar_slider' id='med_col_slider' src="static/img/med_col_slider.png" alt="slider"> 
-    <img class='help_figure colorbar_help' id='med_col_group' src="static/img/med_col_group.png" alt="slider"> 
+    <!-- <img class='help_figure colorbar_slider' id='med_col_slider' src="static/img/med_col_slider.png" alt="slider">  -->
+    <!-- <img class='help_figure colorbar_help' id='med_col_group' src="static/img/med_col_group.png" alt="slider">  -->
 
-    <img class='help_figure colorbar_slider' id='large_col_slider' src="static/img/large_col_slider.png" alt="slider"> 
-    <img class='help_figure colorbar_help' id='large_col_group' src="static/img/large_col_group.png" alt="slider"> 
+    <!-- <img class='help_figure colorbar_slider' id='large_col_slider' src="static/img/large_col_slider.png" alt="slider">  -->
+    <!-- <img class='help_figure colorbar_help' id='large_col_group' src="static/img/large_col_group.png" alt="slider">  -->
 
     <p class="caption">Fig. 5 Dendrogram-like colorbar slider controls. Sliding to the right increases the size of the row/column groups.</p>
 
     <h5 class='section_title'>Filtering</h5>
     <p>Clustergrammer allows users to filter out rows in the data that have relatively low values. This can be useful when working with sparse data or for investigating how clustering changes when only a subset of the data is considered. </p>
 
-    <img class='help_figure filter_slider' id='med_col_slider' src="static/img/no_filter_slider.png" alt="slider"> 
-    <img class='help_figure filter_clust' id='med_col_group' src="static/img/no_filter.png" alt="slider"> 
+    <!-- <img class='help_figure filter_slider' id='med_col_slider' src="static/img/no_filter_slider.png" alt="slider">  -->
+    <!-- <img class='help_figure filter_clust' id='med_col_group' src="static/img/no_filter.png" alt="slider">  -->
 
-    <img class='help_figure filter_slider' id='large_col_slider' src="static/img/yes_filter_slider.png" alt="slider"> 
-    <img class='help_figure filter_clust' id='large_col_group' src="static/img/yes_filter.png" alt="slider"> 
+    <!-- <img class='help_figure filter_slider' id='large_col_slider' src="static/img/yes_filter_slider.png" alt="slider">  -->
+    <!-- <img class='help_figure filter_clust' id='large_col_group' src="static/img/yes_filter.png" alt="slider">  -->
 
     <p class="caption">Fig. 6 Filter rows by adjusting the filter slider.</p>
 

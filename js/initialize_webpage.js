@@ -7,8 +7,8 @@ function run_initialize_webpage( callback_make_new_network ) {
 		"kinase_psite":{
 			"title":"Literature Based Kinase-Substrate Library with Phosphosites",
 			"description":"This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates with phosphosites.",
-			"instructions":"Predict kinase activity using your set of phosphosites",
-			"instruct_height":235,
+			"instructions":"Predict kinase activity using enrichment analysis by submitting your set of phosphosites on the left.",
+			"instruct_height":270,
 			"phosphosite_level":1,
 			"link":"none"
 		},
@@ -115,8 +115,9 @@ function run_initialize_webpage( callback_make_new_network ) {
 		.append('div').attr('id','pop_instructions_text')
 
 	d3.select('#pop_instructions_text')
-		.append('p').text('Instructions')
-		.attr('class','style_library_description_title');
+		.append('p')
+		.text('Instructions:')
+		.attr('class','style_library_description_title quick_title');
 
 	d3.select('#pop_instructions_text')
 		.append('p')
@@ -126,7 +127,7 @@ function run_initialize_webpage( callback_make_new_network ) {
 
 	d3.select('#pop_instructions_text')
 		.append('p')
-		.text('Make other predictions using enrichment analysis by choosing a different phosphosite or protein-level library from the dropdown menu.')
+		.text('Make other predictions using enrichment analysis by choosing a different phosphosite- or protein-level library from the dropdown menu.')
 		.attr('class','style_library_description_text')
 
 
@@ -144,7 +145,8 @@ function run_initialize_webpage( callback_make_new_network ) {
 
 	function click_enr(){
 
-		$('#enrichment_button').trigger('click');
+		// $('#enrichment_button').trigger('click');
+		open_enrichment_panel();
 
 		// highlight library dropdown 
 		d3.select('#library_dropdown')

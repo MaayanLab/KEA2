@@ -5525,6 +5525,7 @@ of the element */
 
 .style_library_description_panel{
   height: 140px;
+  width: 230px;
   padding: 1em;
 }
 
@@ -5540,13 +5541,14 @@ of the element */
   font-size: 0.8125rem;
   overflow-y: auto;
   height:14px;
-  word-break:break-all;
+  /*word-break:break-all;*/
 };
 
 .style_library_description_title{
   font-size: 0.9rem;
   font-weight: 700;
-  margin: 0px 0 2px 0;
+  /*margin: 0px 0 2px 0;*/
+  margin-left: 10px;
 }
 
 .style_library_description_text{
@@ -5554,6 +5556,7 @@ of the element */
   font-size: 0.95rem;
   overflow-y: auto;
   line-height: 135%;
+  margin-left: 5px;
 }
 
 .results_table_header{

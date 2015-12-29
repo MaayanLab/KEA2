@@ -1,9 +1,9 @@
 #enrichment_button{
 	position:absolute;
-  top:130px;
-  left:2.5%;
+  top:135px;
+  left:40px;
   width:210px;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 #search_button{
@@ -25,7 +25,7 @@
 	position: absolute;
 		top:130px;
 		right:2.5%;
-		width:210px;
+		width:230px;
 		height:0px;
 }
 
@@ -175,4 +175,8 @@
 #library_dropdown{
 	font-weight: 800;
 	width: 405px;
+}
+
+.quick_title{
+	margin-left: 5px;
 }
