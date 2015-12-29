@@ -5,16 +5,16 @@ function run_initialize_webpage( callback_make_new_network ) {
 	network_description = {
 
 		"kinase_psite":{
-			"title":"Literature Based Kinase-Substrate Gene Set Library with Phosphosites",
+			"title":"Literature Based Kinase-Substrate Library with Phosphosites",
 			"description":"This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates with phosphosites.",
-			"instructions":"Run kinase enrichment analysis at the phosphosite level or search the kinase network by clicking the buttons on the left.",
+			"instructions":"Predict kinase activity using your set of phosphosites",
 			"instruct_height":235,
 			"phosphosite_level":1,
 			"link":"none"
 		},
 
 		"kinase_gene":{
-			"title":"Literature Based Kinase-Substrate Gene Set Library",
+			"title":"Literature Based Kinase-Substrate Library",
 			"description":"This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates without phosphosites.",
 			"instructions":"Run kinase enrichment analysis at the protein/gene level or search the kinase network by clicking the buttons on the left.",
 			"instruct_height":235,
@@ -126,7 +126,7 @@ function run_initialize_webpage( callback_make_new_network ) {
 
 	d3.select('#pop_instructions_text')
 		.append('p')
-		.text('Choose from other gene set libraries to use for enrichment analysis using the dropdown menu above.')
+		.text('Make other predictions using enrichment analysis by choosing a different phosphosite or protein-level library from the dropdown menu.')
 		.attr('class','style_library_description_text')
 
 

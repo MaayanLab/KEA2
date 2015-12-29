@@ -137,18 +137,23 @@ function create_XMLhttp(){
 	return xmlhttp;
 };
 
+
+
 function save_enrichment_results(enrichment_string){
 
-    // JQuery post command
-    random_number = Math.floor(Math.random()*10000001);
+  //   // JQuery post command
+  //   random_number = Math.floor(Math.random()*10000001);
 
-		$.post('save_enrichment_results.php', {data: enrichment_string, rand: random_number}, function() {
-				window.location="force_download.php?q=" + random_number;
-			}
-		);
-    console.log('the random number that is appended to the document');
-    console.log(random_number);
+		// $.post('save_enrichment_results.php', {data: enrichment_string, rand: random_number}, function() {
+		// 		window.location="force_download.php?q=" + random_number;
+		// 	}
+		// );
+  //   console.log('the random number that is appended to the document');
+  //   console.log(random_number);
+
 };
+
+
 
 function get_JSON(json, canvasRGB, indicatorColor){
   
@@ -807,15 +812,27 @@ function calculate_gene_fill(nodes, elements, hexCode, gmt_flip, gmt){
     // console.log('CREATING THE TEXT FILE')
     file_string = nodeTextFile.join('\n') ; 
     random_number = 1 ;
+
     // this link will be added to the div with the id force_download_link
     d3.select("#force_download_link")
     	.attr("class", "text-center add_top_margin style_force_download_link")
     	.append('a')
     	.attr('id','style_download_enrichment_results')
     	.text('Download Enrichment Results')
-    	.on('click', function(){
-    		save_enrichment_results(file_string);
-    	});
+			.attr('download','enrichment_results.txt');
+
+		// d3.select('#force_download_link')
+		// 	.append('a')
+		// 	.attr('id','programatically')
+		// 	.attr('download','enrichment_results.txt')
+		// 	.text('click-here');
+
+		$("a#style_download_enrichment_results").click(function(){
+		  // var now = new Date().toString();
+		  var now = file_string;
+		  this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(now);
+		});
+
 
     d3.select("#force_download_link")
     	.attr("class", "text-center add_top_margin style_force_download_link")
