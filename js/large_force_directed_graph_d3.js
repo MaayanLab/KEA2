@@ -106,13 +106,49 @@ function make_new_network( inst_network_name ) {
   var x = w.innerWidth  || e.clientWidth || g.clientWidth  ;
   var y = w.innerHeight || e.clientHeight|| g.clientHeight ;
 
+  inst_charge = -300;
+  inst_gravity = 0.6;
+  inst_link_dist = 15;
+
+  console.log(inst_network_name)
+
+  if (inst_network_name === 'silac_gene'){
+    inst_charge = -2000;
+    inst_gravity = 1.0;
+    inst_link_dist = 30;
+  }
+
+  if (inst_network_name === 'geo_up_gene'){
+    inst_charge = -1500;
+    inst_gravity = 1.0;
+    inst_link_dist = 30;
+  }  
+
+  if (inst_network_name === 'geo_down_gene'){
+    inst_charge = -1500;
+    inst_gravity = 1.0;
+    inst_link_dist = 30;
+  }    
+
+  if (inst_network_name === 'l1000_up_gene'){
+    inst_charge = -1500;
+    inst_gravity = 1.0;
+    inst_link_dist = 15;
+  }    
+
+  if (inst_network_name === 'l1000_down_gene'){
+    inst_charge = -1500;
+    inst_gravity = 1.0;
+    inst_link_dist = 15;
+  }    
+
   var width = 960;
   var height = 500;
   var color = d3.scale.category20();
   var force = d3.layout.force()
-                .charge(-300)
-                .linkDistance(15)
-                .gravity(0.6)
+                .charge(inst_charge)
+                .linkDistance(inst_link_dist)
+                .gravity(inst_gravity)
                 .size([x, 800])
                 .alpha(0.01);
 
@@ -130,10 +166,10 @@ function make_new_network( inst_network_name ) {
       .append("svg")
       .attr("width", x)
       .attr("height", y)
+      .call(d3.behavior.zoom().scaleExtent([0.5,5.0]).on("zoom", redraw))
       // .style('margin-left','50px')
       .attr('id','network_svg' )
       .append('svg:g')
-        .call(d3.behavior.zoom().scaleExtent([0.25,2.0]).on("zoom", redraw))
       .append('svg:g');
 
   svg.append('svg:rect')
@@ -263,9 +299,17 @@ function make_new_network( inst_network_name ) {
             // not enriched nodes
             //
             // first reset all nodes that are not enriched, enriched nodes have a different class
-            d3.selectAll('.node').select('circle').transition().duration(10).attr('r',4).style('fill','#1f77b4');
+            d3.selectAll('.node')
+              .select('circle')
+              .transition().duration(10)
+              .attr('r',4).style('fill','#1f77b4')
+              .style('opacity',0.1)
             // first reset font-weight 
-            d3.selectAll('.node').select('text').transition().duration(10).style('font-weight','normal').style('opacity',0.2);
+            d3.selectAll('.node')
+              .select('text')
+              .transition().duration(10)
+              .style('font-weight','normal')
+              .style('opacity',0.2);
             // enriched nodes
             //
             // first reset all nodes that are not enriched, enriched nodes have a different class
@@ -380,9 +424,31 @@ function make_new_network( inst_network_name ) {
             // not enriched nodes
             //
             // first reset all nodes that are not enriched, enriched nodes have a different class
-            d3.selectAll('.node').select('circle').transition().duration(10).attr('r',4).style('fill','#1f77b4');
+            d3.selectAll('.node')
+              .select('circle')
+              .transition().duration(10)
+              .attr('r',4).style('fill','#1f77b4');
+
+
+            // there are no enriched terms
+            if ( d3.selectAll('.node_enr').empty() === true ){
+              d3.selectAll('.node')
+                .select('circle')
+                .style('opacity',0.5);
+            } else {
+              d3.selectAll('.node')
+                .select('circle')
+                .style('opacity',0.1);
+            }
+
+
             // first reset font-weight 
-            d3.selectAll('.node').select('text').transition().duration(10).style('font-weight','normal').style('opacity',0.2);
+            d3.selectAll('.node')
+              .select('text')
+              .transition().duration(10)
+              .style('font-weight','normal')
+              .style('opacity',0.2);
+
             // enriched nodes
             //
             // first reset all nodes that are not enriched, enriched nodes have a different class
@@ -405,7 +471,8 @@ function make_new_network( inst_network_name ) {
       .attr("r", 4)
       .style("fill", '#1f77b4')
       .style('stroke','#fff')
-      .style('stroke-width','1.5px');
+      .style('stroke-width','1.5px')
+      .style('opacity',0.5);
 
     node.append('text')
       .text(function(d) { return d.name; })

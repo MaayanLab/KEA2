@@ -7,10 +7,10 @@ running_search = 0;
 //
 // initial positions
 y_ini_search_button = 190 ;
-y_ini_library_description = 250 ;
+y_ini_library_description = 200 ;
 // final
 y_fin_search_button = 470 ;
-y_fin_library_description = 530 ;
+y_fin_library_description = 470 ;
 
 // input buttons initial position 
 y_ini_input_three_buttons = 200;

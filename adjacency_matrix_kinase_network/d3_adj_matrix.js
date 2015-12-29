@@ -1,10 +1,4 @@
 
-function tmp_function(){
-    console.log('hello from tmp function ');
-}
-
-
-
 // select the adjacency matrix 
 // d3.select('#network').on('change', function() {
 
@@ -15,7 +9,6 @@ function change_matrix(matrix_name) {
   inst_net = network_names.indexOf(matrix_name);
 
   console.log('select the adjacency matrix');
-  console.log(inst_net);
   
   d3.select('.main_svg').remove() ;
 
@@ -213,7 +206,6 @@ d3.json('networks/' + network_name+'.json', function(sim_matrix) {
 
   console.log(network_name);
 
-  console.log(sim_matrix);
 
   // console.log(sim_matrix.gmt['TNK2']);
 
@@ -265,7 +257,6 @@ d3.json('networks/' + network_name+'.json', function(sim_matrix) {
 
   });
 
-  console.log(nodes);
 
   // // view finished matrix 
   // console.log(matrix);

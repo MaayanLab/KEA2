@@ -170,12 +170,14 @@ function clear_enrichment(){
 	// reset the class of the enriched nodes 
 	d3.selectAll('.node_enr')
 		.attr('class','node');
+
   // first reset all nodes that are not enriched, enriched nodes have a different class
   d3.selectAll('.node')
   	.select('circle')
 		.transition().duration(10)
 		.attr('r',4)
-		.style('fill','#1f77b4');
+		.style('fill','#1f77b4')
+		.style('opacity',0.5);
 
   // first reset font-weight 
   d3.selectAll('.node')
@@ -503,9 +505,15 @@ function calculate_gene_fill(nodes, elements, hexCode, gmt_flip, gmt){
 		// Highlight the enriched terms in the network 
 		//
 		// define a scale for the opacity of the circles 
-		scale_radius = d3.scale.linear().domain([0, max_logpval]).range([4.1,20]);
+		scale_radius = d3.scale
+										.linear()
+										.domain([0, max_logpval])
+										.range([4.1,30]);
 		// define a scale for the stroke width of the outline of the circle
-		scale_stroke = d3.scale.linear().domain([0, max_logpval]).range([1.5,2]);
+		scale_stroke = d3.scale
+										.linear()
+										.domain([0, max_logpval])
+										.range([1.5,2]);
 		
 
 		///////////////////////////////////////////////////
@@ -546,7 +554,7 @@ function calculate_gene_fill(nodes, elements, hexCode, gmt_flip, gmt){
 	    	.style('opacity',1)
 	    	// !!! increase font-size of enriched terms 
 	    	.style('font-size','15px')
-	    	.style('font-weight',900)
+	    	.style('font-weight',900);
 
 	    // change the class of the node
 	    d3.select('#id_'+inst_node_name.replace('&','') ).attr('class','node_enr');
@@ -859,10 +867,18 @@ function gene_fill(nodes, elements, hexCode, gmt_flip, gmt, random_number){
 	// reset the class of the enriched nodes 
 	d3.selectAll('.node_enr').attr('class','node');
   // first reset all nodes that are not enriched, enriched nodes have a different class
-  d3.selectAll('.node').select('circle').transition().duration(10).attr('r',4).style('fill','#1f77b4');
-  // first reset font-weight 
-  d3.selectAll('.node').select('text').transition().duration(10).style('font-weight','normal').style('opacity',0.2);
+  d3.selectAll('.node')
+  	.select('circle')
+  	.transition().duration(10)
+  	.attr('r',4)
+  	.style('fill','#1f77b4');
 
+  // first reset font-weight 
+  d3.selectAll('.node')
+  	.select('text')
+  	.transition().duration(10)
+  	.style('font-weight','normal')
+  	.style('opacity',0.2);
 
   // first remove instructions if this has not already been done 
   d3.select('#pop_instructions').style('display','none').style('opacity',0);
