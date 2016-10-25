@@ -5752,11 +5752,11 @@ em#colorScale{
 }
 
 #kinase_network_by{
-  font-size:0.7rem;
-  font-weight: 900;
+  font-size:15px;
+  /*font-weight: 700;*/
   background: #008cba;
 }
 
 #network_title{
-  font-size:0.7rem;
+  font-size:15px;
 }

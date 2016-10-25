@@ -6,7 +6,7 @@ function run_initialize_webpage( callback_make_new_network ) {
 
 		"kinase_psite":{
 			"title":"Literature Based Kinase-Substrate Library with Phosphosites",
-			"description":"This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates with phosphosites.",
+			"description":"This library can be used to predict kinase activity from your input set of phosphosites. This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates with phosphosites.",
 			"instructions":"Predict kinase activity using enrichment analysis by submitting your set of phosphosites on the left.",
 			"instruct_height":270,
 			"phosphosite_level":1,
@@ -16,8 +16,8 @@ function run_initialize_webpage( callback_make_new_network ) {
 		"kinase_gene":{
 			"title":"Literature Based Kinase-Substrate Library",
 			"description":"This library was made by manual curation of kinase-substrate interactions in the literature. The library terms are kinases and the elements are substrates without phosphosites.",
-			"instructions":"Run kinase enrichment analysis at the protein/gene level or search the kinase network by clicking the buttons on the left.",
-			"instruct_height":235,
+			"instructions":"Predict kinase activity using enrichment analysis by submitting your set of phosphorylated proteins on the left.",
+			"instruct_height":280,
 			"phosphosite_level":0,
 			"link":"none"
 		},
@@ -25,8 +25,8 @@ function run_initialize_webpage( callback_make_new_network ) {
 		"term_psite":{
 			"title":"Biological Terms Associated with Phosphosites from Literature Mining",
 			"description":"This library was made by text mining abstracts from papers that describe specific phosphosites on protein substrates. The library terms are biological terms that are associated with specific phosposites.",
-			"instructions":"Run biological term enrichment analysis at the phosphosite level or search the biological term network by clicking the buttons on the left.",
-			"instruct_height":260,
+			"instructions":"Find biological terms that are associated with your set of phosphosites by submitting your set of phosphosites on the left.",
+			"instruct_height":275,
 			"phosphosite_level":1,
 			"link":"none"
 		},	
@@ -34,8 +34,8 @@ function run_initialize_webpage( callback_make_new_network ) {
 		"term_gene":{
 			"title":"Biological Terms Associated with Phosphorylated Proteins from Literature Mining",
 			"description":"This library was made by text mining abstracts from papers that describe specific phosphosites on protein substrates. The terms are biological terms that are associated with specific protein substrates.",
-			"instructions":"Run biological term enrichment analysis at the protein/gene level or search the kinase network by clicking the buttons on the left.",
-			"instruct_height":260,
+			"instructions":"Find biological terms that are associated with your set of phosphorylated proteins by submitting your set of phosphorylated proteins on the left",
+			"instruct_height":300,
 			"phosphosite_level":0,
 			"link":"none"
 		},	
@@ -43,7 +43,7 @@ function run_initialize_webpage( callback_make_new_network ) {
 		"silac_gene":{
 			"title":"SILAC Experiment Gene Set Library",
 			"description":"This library was made by gathering phosphorylation substrates at the gene level from Stable Isotope Labeling by Amino acids in Cell culture (SILAC) phosphoproteomics experiments. The terms are SILAC experiments and the elements are protein substrates. Click on experiment terms to be redirected to the publication's pubmed page.",
-			"instructions":"Calculate enrichment for SILAC phosphoproteomics data at the protein level or search the SILAC experiment network by clicking the buttons on the left.",
+			"instructions":"Find SILAC Experiments that have differentially phosphorylated protenins that are similar to your input list of phoshorylated proteins.	",
 			"instruct_height":275,
 			"phosphosite_level":0,
 			"link":"pubmed"
@@ -52,7 +52,7 @@ function run_initialize_webpage( callback_make_new_network ) {
 		"geo_up_gene":{
 			"title":"Up-regulated Genes following Kinase Perturbation from GEO",
 			"description":"This library was made by finding genes that were up-regulated after kinase perturbation from the Gene Expression Omnibus (GEO). The terms are kinase perturbation experiments and the elements are up-regulated genes.",
-			"instructions":"Calculate enrichment for up-regulated genes after kinase perturbation from the Gene Expression Omnibus (GEO) or search the GEO experiment network by clicking the buttons on the left.",
+			"instructions":"Find kinase perturbation experiments (from the Gene Expression Omnibus) that have differentially expressed genes that are similar to your input list of differentially expressed genes. ",
 			"instruct_height":295,
 			"phosphosite_level":0,
 			"link":"geo"

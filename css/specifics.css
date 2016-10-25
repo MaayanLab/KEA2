@@ -174,9 +174,21 @@
 
 #library_dropdown{
 	font-weight: 800;
-	width: 405px;
+	width: 300px;
 }
 
 .quick_title{
 	margin-left: 5px;
+}
+
+body{
+	min-width: 1000px;
+}
+
+.top-bar{
+	width: 900px;
+}
+
+#type_level{
+	font-size: 13px;
 }

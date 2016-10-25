@@ -115,7 +115,7 @@ function make_new_network( inst_network_name ) {
   if (inst_network_name === 'silac_gene'){
     inst_charge = -2000;
     inst_gravity = 1.0;
-    inst_link_dist = 30;
+    inst_link_dist = 15;
   }
 
   if (inst_network_name === 'geo_up_gene'){

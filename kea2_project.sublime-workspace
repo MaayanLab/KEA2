@@ -1,0 +1,745 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"correcteD",
+				"Corrected"
+			],
+			[
+				"corrected_",
+				"corrected_pvalues_str"
+			],
+			[
+				"corrected",
+				"corrected_pvalues_str"
+			],
+			[
+				"calculate",
+				"calculateGeneFill"
+			],
+			[
+				"buildNe",
+				"buildNetworkModal"
+			],
+			[
+				"term",
+				"terms"
+			],
+			[
+				"quant",
+				"quantilenorm"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"dex",
+				"dex"
+			],
+			[
+				"Dex",
+				"Dex"
+			],
+			[
+				"PPI_AG",
+				"PPI_AG"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "adjacency_matrix_kinase_network/d3_adj_matrix.js",
+			"settings":
+			{
+				"buffer_size": 46279,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "adjacency_matrix_kinase_network/blockUI.js",
+			"settings":
+			{
+				"buffer_size": 19909,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/specifics.css",
+			"settings":
+			{
+				"buffer_size": 2352,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"qui",
+				"Git: Quick Commit"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"log",
+				"Git: Log All"
+			],
+			[
+				"qi",
+				"Git: Quick Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"package control: install package ",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"FileDiffs",
+				"FileDiffs: Menu"
+			],
+			[
+				"filed",
+				"FileDiffs: Menu"
+			],
+			[
+				"filediff",
+				"FileDiffs: Menu"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":exit",
+				"Set Syntax: Regular Expressions (Python)"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				":",
+				":w - Save"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 351.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/nickfernandez/Documents/KEA2",
+		"/Users/nickfernandez/Documents/KEA2/js"
+	],
+	"file_history":
+	[
+		"/Users/nickfernandez/Documents/KEA2/index.html",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/large_force_directed_graph_d3/js/large_force_directed_graph_d3.js",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/large_force_directed_graph_d3/css/foundation.css",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/X2K_nosology/css/specific.css",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/X2K_nosology/index_divergent_forces.html",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/X2K_nosology/X2K_nosology_website_project.sublime-project",
+		"/C/Users/Nick Fernandez/Documents/X2K_outputs/sample_gene_list.txt",
+		"/C/Users/Nick Fernandez/Documents/X2K_outputs/tmp.graphml",
+		"/C/Users/Nick Fernandez/Documents/X2K_outputs/run_jar.bat",
+		"/C/Users/Nick Fernandez/Documents/X2K_binary/settings(modified).ini",
+		"/C/Users/Nick Fernandez/Documents/X2K_binary/batch.graphml",
+		"/C/Users/Nick Fernandez/Documents/X2K_binary/sample_gene_list_2.graphml",
+		"/C/Users/Nick Fernandez/Documents/X2K_binary/tmp.xml",
+		"/C/Program Files (x86)/Expression2Kinases/settings.ini",
+		"/C/Users/Nick Fernandez/Documents/KEA_data/kinase_int-sub_KEA-X2K-final_phos.txt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/down-regulated_genes_following_kinase_perturbation_GEO_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/down-regulated_genes_following_kinase_perturbation_L1000_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/up-regulated_genes_following_kinase_perturbation_GEO_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/up-regulated_genes_following_kinase_perturbation_L1000_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/SILAC_experiment_protein_level_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/Kinase_substrate_and_interaction_protein_level_pmid_resource_database.txt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/Kinase_substrate_phospho-site_level_pmid_resource_database.txt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/kinase-substrate_gene_level_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/kinase-substrate_phospho-site_level_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/biological_terms_assocaited_with_phospho-sites_set_library.tsv",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/KEA2/gsl/biological_terms_assocaited_with_phospho-proteins_set_library.tsv",
+		"/C/Users/Nick Fernandez/Documents/KEA_data/kinase_interactions_pmid.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA_data/Zichen_kinase-substrate.txt",
+		"/C/Users/Nick Fernandez/Documents/Python Scripts/CST_Hornbeck/Kinome_data_from_Peter_Hornbeck/kinome_for_nick/final_phosphosite.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA_data/kinome_for_nick/Kinase_psite.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Remake_Canvases/backup_all_GMTs/Kinase_psite.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA_data/kinome_for_nick/Kinase_phosphosite_pmid_database.txt",
+		"/C/Users/Nick Fernandez/Documents/Python Scripts/KEA_gmt_file/Kinase_psite.txt",
+		"/C/Users/Nick Fernandez/Downloads/kk_substrate_net (3).tsv",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Brazil_presentation_notes_from_memory_3.txt",
+		"/C/Users/Nick Fernandez/Documents/CST_PTM/Enzyme_lists/kinases/Uniprot_kinases_4_27_2014/Uniprot_kinases_processed.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/top_200_kinase-kinase_sim_L1000.txt",
+		"/C/Users/Nick Fernandez/Documents/Python Scripts/CST_Hornbeck/Kinome_data_from_Peter_Hornbeck/processed_psite_pmids.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Brazil_After_Presentation.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Brazil_Presentation_Slide_Notes.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Brazil_presentation_from_memory.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/KEA2_website/notes_bar_graph_and_other_website_mods.txt",
+		"/C/Users/Nick Fernandez/Documents/Python Scripts/README_abstract_fetch_psite.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/L1000_conference_calls/L1000_conference_calls.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Brazil_Notes_for_presentation.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Brazil_presentation_notes_from_memory_2.txt",
+		"/C/Users/Nick Fernandez/Documents/Python Scripts/abstract_fetch/Hornbeck_all_uniq_psite_pmid.txt",
+		"/C/Users/Nick Fernandez/Documents/Python Scripts/CST_Hornbeck/Kinome_data_from_Peter_Hornbeck/README_Peter_Hornbeck_email_Reg_Sites_terms-and-associated-info.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Archives_Rolling_to_do_list.txt",
+		"/C/Users/Nick Fernandez/Documents/Uniprot/Kinase_domains/kinase_domains.txt",
+		"/C/Users/Nick Fernandez/Documents/Python Scripts/process_kinase_domains.py",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Uniprot_documentation/kinase_domains/kinase_domains_gmt.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Uniprot_documentation/Uniprot_kinases_4_27_2014/Uniprot_kinases_processed.txt",
+		"/C/Users/Nick Fernandez/Downloads/ATT00001 (4).txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_substrate.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Remake_Canvases/backup_all_GMTs/Kinase_gene.gmt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/Rolling_to_do_list.txt",
+		"/C/Users/Nick Fernandez/Documents/Notebook/Notebook Files/D3_notes/D3_notes.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/ccle/ic/ic_cellline_ccle_cm.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/ccle/ic/cellline_ic_ccle_cm.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/IDG_TDL_class/tcr_GPCRs_with_num_GeneRIFs.txt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/IDG_networks/networks/kinase_cellline_ccle_jaccard.json",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/IDG_networks/networks/nr_cellline_ccle_jaccard.json",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/ccle/nr/nr_cellline_ccle_dn_crisp.gmt",
+		"/C/Users/Nick Fernandez/Downloads/gikn_list_human.txt",
+		"/C/Users/Nick Fernandez/Documents/D3_lectures/D3_notes.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/L1000_ChDs/readme.txt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/IDG_networks/networks/gpcr_pathway_wikipathways_jaccard.json",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/mint/gpcr/gpcr_gene_mint_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/biogrid/gpcr/gpcr_gpcr_biogrid_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/biogrid/ic/gene_ic_biogrid_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/biogrid/ic/ic_ic_biogrid_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/intact/gpcr/gpcr_gpcr_intact_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/intact/ic/ic_ic_intact_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/intact/ic/gene_ic_intact_sm_jaccard.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/intact/ic/ic_gene_intact_sm_jaccard.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/intact/ic/ic_ic_intact_sm_jaccard.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/intact/gpcr/gpcr_gene_intact_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/biogrid/gpcr/gene_gpcr_biogrid_sm_jaccard.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/biogrid/gpcr/gene_gpcr_biogrid_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/achilles/gpcr/cellline_gpcr_achilles_cm.txt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/go/ic/annot_ic_go_crisp.gmt",
+		"/D/nick_dropbox/Dropbox/IDG Collab/ProcessedData/achilles/ic/cellline_ic_achilles_dn_crisp.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Remake_Canvases/backup_all_GMTs/phosphatase_substrate_GMT.txt",
+		"/C/Users/Nick Fernandez/Documents/CST_PTM/NOTES/CST_notes.txt",
+		"/C/Users/Nick Fernandez/Documents/Review_paper_PhosFox/my_first_review_notes/review_paper_notes.txt",
+		"/C/Users/Nick Fernandez/Documents/Review_paper_PhosFox/notes_PhosFOX_addressed_comments.txt",
+		"/C/Users/Nick Fernandez/Documents/Wikipathways/Human/Hs_Lidocaine_metabolism_WP2646_74430.gpml",
+		"/C/Users/Nick Fernandez/Documents/CST_PTM/enrichment_top_100_ptms/cell_line_gmts/enr_Kp_cl_AKT.txt",
+		"/C/Users/Nick Fernandez/Documents/CST_PTM/enrichment_top_100_ptms/cell_line_gmts/enr_Kp_cl_AGC.txt",
+		"/C/Users/Nick Fernandez/Documents/CST_PTM/enrichment_top_100_ptms/cell_line_gmts/enr_Kp_cl_STP.txt",
+		"/C/Users/Nick Fernandez/Documents/CST_PTM/enrichment_top_100_ptms/cell_line_gmts/enr_Kp_cl_PY.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_proteomicsdb.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_cosmicmut.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_cosmiccnv.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_ccle.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_achilles.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_kinsub_resource_combined.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_ccle_dn.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_ccle_up.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_achilles_dn.gmt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/CST_D3/CST_D3_all_cl/cell_line_er_rank/cl_1/er_Gd.txt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/CST_D3/CST_D3_all_cl/cell_line_er/cl_1/er_Gd.txt",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/d3_adj_matrix_meta/networks/kinase_tf.json",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC9/data/localweb/d3_adj_matrix_meta/networks/kinase_groups.json",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_gene_ppi.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_annot_go_crisp.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/GO_terms/GO_terms.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_annot_go_proc_flipped.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_annot_go_crisp_flipped.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_annot_go.txt",
+		"/C/Users/Nick Fernandez/Google Drive/KinomePaperCollab/TextMining/word_kinase_textmining_crisp.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_word_generif_flipped.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_word_generif_f5pc_crisp.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_word_generif_f5pc_crisp_flipped.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_word_generif.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/GO_terms",
+		"/C/Users/Nick Fernandez/Google Drive/KinomePaperCollab/PPI/Combined/kinase_gene_ppi_crisp.gmt",
+		"/C/Users/Nick Fernandez/Google Drive/KinomePaperCollab/PPI/Combined/gene_kinase_ppi_crisp.gmt",
+		"/C/Users/Nick Fernandez/Google Drive/KinomePaperCollab/NURSA/ip_kinase_nursa_crisp.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_cl_proteomicsdb.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_disease_omim_truncterm_crisp_flipped.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_pathway_flipped.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_pathway_flipped.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_drug_kinomescan_flipped.txt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_drug_kinomescan.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_drug_kinomescan_flipped.gmt",
+		"/C/Users/Nick Fernandez/Documents/KEA2_website_files/Kinase_sim_networks_for_d3/all_gmts/kinase_drug_kinomescan.txt"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"",
+			"<open folders>",
+			"C:\\Users\\Nick Fernandez\\Documents\\MATLAB",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"blockmsg",
+			"waiting",
+			"blockmsg",
+			"waiting",
+			"this",
+			"2014",
+			"topbar",
+			"hemn",
+			"bar",
+			"log",
+			"underscore",
+			"rect",
+			"svg",
+			"redraw",
+			"zoom",
+			"font",
+			".node",
+			"font",
+			"demo2",
+			"parent",
+			"jquery",
+			"panel1a",
+			"foundation",
+			"function",
+			"path_",
+			"run_",
+			"gmml",
+			"gml",
+			"graphml",
+			"xml",
+			"json",
+			"yed",
+			"x2k",
+			"commons",
+			"t32",
+			"binding",
+			"interaction",
+			"8756661",
+			"zap70	zap70	8756661",
+			"zap70	zap70",
+			"brps6ka1",
+			"kinexus",
+			"zichen",
+			"ptpn22	zap70_y493	15659558	kinexus",
+			" ",
+			"sept",
+			"hprd",
+			"networkin",
+			"zap70",
+			"binding",
+			"phosphorylation",
+			"x2k",
+			"final_phosphosite",
+			"networkin",
+			"final_phosphosite",
+			"regexp",
+			"all kinase",
+			"gmt",
+			"load gmt",
+			"ptk2",
+			"riok",
+			"lyn",
+			"egfr",
+			"mtor",
+			"sim_matrix",
+			"error",
+			"strmatch",
+			"strfind",
+			"binned",
+			"to do",
+			"done",
+			"address",
+			"kinase substrate",
+			"to do",
+			"final_phosphosite",
+			"number",
+			"combine",
+			",",
+			"differentiation",
+			"norm",
+			"Z-score",
+			"z-score",
+			"phosphatase",
+			"egfr",
+			"silac",
+			"akt1",
+			"pkb",
+			"pdk",
+			"srrm2_s908",
+			"srrm2_s90",
+			"srrm",
+			"grep",
+			"triangle",
+			"heart project",
+			"functions",
+			"nationwide",
+			"idea",
+			"presentation",
+			"meetin",
+			"slack",
+			"domain",
+			"sengupta",
+			"MSKCC",
+			"funding",
+			"funding number",
+			"clkp",
+			"load_gmts",
+			"phosphatase",
+			"gmts",
+			"backup_all",
+			"gmts.mat",
+			"run_",
+			"gmt",
+			"ros1",
+			"known muta",
+			"resource",
+			"wip",
+			"mskcc",
+			"mskcc'",
+			"nsclc",
+			"common",
+			"is the most",
+			"mskcc",
+			"brazil",
+			"wip",
+			"mskcc",
+			"clkp",
+			"jak"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "adjacency_matrix_kinase_network/d3_adj_matrix.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 46279,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 197.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "adjacency_matrix_kinase_network/blockUI.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								759,
+								759
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/specifics.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 243.0
+	},
+	"output.find_results":
+	{
+		"height": 397.0
+	},
+	"output.git":
+	{
+		"height": 232.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "kea2_project.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"d3_ad",
+				"adjacency_matrix_kinase_network/d3_adj_matrix.js"
+			],
+			[
+				"block",
+				"adjacency_matrix_kinase_network/blockUI.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"_vintageous_last_buffer_search": "blockui",
+		"_vintageous_last_buffer_search_command": "vi_slash",
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 252.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
